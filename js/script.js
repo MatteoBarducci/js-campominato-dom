@@ -6,6 +6,8 @@
 // Per preparare il gioco seleziono dall'HTML la griglia, il bottore 'gioca' e il livello di difficoltà scelto dall'utente nella select.
 const grid = document.querySelector('.grid')
 const btn = document.querySelector('#btn');
+const scoreMessage = document.querySelector('.score')
+const scoreComment = document.querySelector('.score-comment')
 let difficulty = document.querySelector('#difficulty');
 // Assegno una score pari a zero che verrà incrementata di 1 ogni qualvolta l'utente clicca su un quadrato 'non bomba'
 let score = 0;
@@ -13,6 +15,7 @@ let score = 0;
 // Al click del bottone genero la griglia di quadrati in base alla difficoltà inserita dall'utente. 
 // La griglia, essendo un quadrato, deve avere il lato con lunghezza pari a √(numeri nella griglia) quadrati
 btn.addEventListener('click', function(){
+    scoreMessage.classList.remove('active');
     grid.innerHTML = ''
     let value = difficulty.value;
     let numberPerRow = Math. sqrt(value)
@@ -41,13 +44,11 @@ btn.addEventListener('click', function(){
                 this.classList.add('blue')
             } else {
                 this.classList.add('red')
-                alert('Hai trovato una bomba, il tuo punteggio è ' + score)
+                scoreMessage.classList.add('active');
+                scoreComment.innerHTML = 'Hai trovato una bomba, il tuo punteggio è ' + score
             }
-            console.log('score ', score)
-        })
-        
+        })  
     }
-    
 })
 
 // La funzione genera un elemento del DOM, un div con classe square.

@@ -17,6 +17,7 @@ body{
     width: 700px;
     height: 700px;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .square{
@@ -72,4 +73,21 @@ img{
 
 .red{
     background-color: red;
+}
+
+.score{
+    position: absolute;
+    margin: auto;
+    top: 380px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    right: 50%;
+    transform: translateX(+50%);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+    display: none;
+}
+
+.active {
+    display: inline-block;
 }
