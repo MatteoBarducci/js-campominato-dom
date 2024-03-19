@@ -1,0 +1,71 @@
+/*------------
+RESET
+-------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Montserrat", sans-serif;
+}
+
+.grid{
+    margin: auto;
+    display: flex;
+    width: 800px;
+    height: 800px;
+    flex-wrap: wrap;
+}
+
+.square{
+    background-color: rgb(196, 93, 255);
+    border: 1px solid white;
+    color: white;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+header{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-right: 100px;
+    margin-left: 70px;
+    margin-top: -15px;
+}
+
+.header-right,.header-left{
+    display: flex;
+    align-items: center;
+}
+
+img{
+    height: 80px;
+}
+
+#btn,#difficulty{
+    background-color: rgb(196, 93, 255);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    cursor: pointer;
+}
+
+#btn{
+    margin-right: 20px;
+}
+
+.blue{
+    background-color: rgb(56, 56, 255);
+}
