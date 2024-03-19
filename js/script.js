@@ -10,11 +10,11 @@ const scoreMessage = document.querySelector('.score')
 const scoreComment = document.querySelector('.score-comment')
 let difficulty = document.querySelector('#difficulty');
 // Assegno una score pari a zero che verrà incrementata di 1 ogni qualvolta l'utente clicca su un quadrato 'non bomba'
-let score = 0;
 
 // Al click del bottone genero la griglia di quadrati in base alla difficoltà inserita dall'utente. 
 // La griglia, essendo un quadrato, deve avere il lato con lunghezza pari a √(numeri nella griglia) quadrati
 btn.addEventListener('click', function(){
+    let score = 0;
     scoreMessage.classList.remove('active');
     grid.innerHTML = ''
     let value = difficulty.value;
@@ -36,8 +36,8 @@ btn.addEventListener('click', function(){
         grid.append(newSquare);
         // Al click il quadrato si colora di blu se questo non è una bomba. 
         // Ovvero, se il numero del quadrato cliccato non è compreso nell'array di bombe. 
-        // Altrimenti il quadrato si colora di rosso
         // Inoltre, per ogni click su un quadrato non bomba, la score aumenta di uno.
+        // Altrimenti il quadrato si colora di rosso e mostra il 
         newSquare.addEventListener ('click', function(){
             if (!bombs.includes(i)){
                 score += 1
@@ -45,7 +45,7 @@ btn.addEventListener('click', function(){
             } else {
                 this.classList.add('red')
                 scoreMessage.classList.add('active');
-                scoreComment.innerHTML = 'Hai trovato una bomba, il tuo punteggio è ' + score
+                scoreComment.innerHTML = 'Hai trovato una bomba, il tuo punteggio è ' + score + '/' + (value - 16) 
             }
         })  
     }
