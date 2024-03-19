@@ -12,6 +12,15 @@ btn.addEventListener('click', function(){
     grid.innerHTML = ''
     let value = difficulty.value;
 
+    let bombs = []
+    while(bombs.length < 16){
+        let bomb = Math.floor(Math.random() * (value - 1 + 1)) + 1;
+        if (!bombs.includes(bomb)){
+            bombs.push(bomb)
+        }
+        console.log(bombs)
+    }
+
     let numberPerRow = Math. sqrt(value)
     console.log(numberPerRow)
     
@@ -22,10 +31,19 @@ btn.addEventListener('click', function(){
         newSquare.style.height = `calc(100% / ${numberPerRow})`
         
         grid.append(newSquare);
-
+        console.log('i ', i)
+        let score = 0;
         newSquare.addEventListener ('click', function(){
-            this.classList.add('blue')
+            if (!bombs.includes(i)){
+                this.classList.add('blue')
+                score += 1
+            } else {
+                this.classList.add('red')
+                score = score + 0
+            }
+            console.log('score ',score)
         })
+
     }
 
 })
