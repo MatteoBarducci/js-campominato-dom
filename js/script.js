@@ -6,6 +6,7 @@
 const grid = document.querySelector('.grid')
 const btn = document.querySelector('#btn');
 let difficulty = document.querySelector('#difficulty');
+let score = 0;
 
 
 btn.addEventListener('click', function(){
@@ -18,11 +19,9 @@ btn.addEventListener('click', function(){
         if (!bombs.includes(bomb)){
             bombs.push(bomb)
         }
-        console.log(bombs)
     }
 
     let numberPerRow = Math. sqrt(value)
-    console.log(numberPerRow)
     
     for(let i = 1; i <= value; i++){
         const newSquare = generateSquare(i);
@@ -31,24 +30,22 @@ btn.addEventListener('click', function(){
         newSquare.style.height = `calc(100% / ${numberPerRow})`
         
         grid.append(newSquare);
-        console.log('i ', i)
-        let score = 0;
         newSquare.addEventListener ('click', function(){
             if (!bombs.includes(i)){
-                this.classList.add('blue')
                 score += 1
+                this.classList.add('blue')
             } else {
                 this.classList.add('red')
-                score = score + 0
+                alert('Hai trovato una bomba, il tuo punteggio è ' + score)
             }
-            console.log('score ',score)
+            console.log('score ', score)
         })
-
+        
     }
-
+    
 })
 
-function generateSquare(number, value){
+function generateSquare(number){
     const newSquare = document.createElement('div');
     newSquare.classList.add('square');
     newSquare.innerHTML = '<span>' + number + '</span>';
