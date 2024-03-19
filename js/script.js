@@ -45,7 +45,7 @@ btn.addEventListener('click', function(){
             } else {
                 this.classList.add('red')
                 scoreMessage.classList.add('active');
-                scoreComment.innerHTML = 'Hai trovato una bomba, il tuo punteggio è ' + score + '/' + (value - 16) 
+                scoreComment.innerHTML = 'Hai trovato una bomba, il tuo punteggio è ' + score + ' su ' + (value - 16) 
             }
         })  
     }
